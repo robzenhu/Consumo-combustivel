@@ -22,10 +22,10 @@ if ($_POST){
             $mensagem.="<div class='sucesso'>";
             $mensagem.="O valor total gasto será de:";
             $mensagem.="<ul>";
-            $mensagem.="<li><b>Gasolina: R$ <b>".$calculoGasolina."</li>";
-            $mensagem.="<li><b>Alcool: R$ <b>".$calculoAlcool."</li>";
-            $mensagem.="<li><b>Diesel: R$ <b>".$calculoDiesel."</li>";
-            $mensagem.="<li><b>Gasolina: R$ <b>".$calculoGasNatural."</li>";
+            $mensagem.="<li><b>Gasolina: R$ </b>".$calculoGasolina."</li>";
+            $mensagem.="<li><b>Alcool: R$ </b>".$calculoAlcool."</li>";
+            $mensagem.="<li><b>Diesel: R$ </b>".$calculoDiesel."</li>";
+            $mensagem.="<li><b>GNV: R$ </b>".$calculoGasNatural."</li>";
             $mensagem.="</ul>";
             $mensagem.="</div>";
 
