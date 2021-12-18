@@ -1,5 +1,5 @@
 <?php
-
+$mensagem= '';
 if ($_POST){
     $distancia = $_POST['distancia'];
     $autonomia = $_POST['autonomia'];
@@ -19,20 +19,55 @@ if ($_POST){
             $calculoDiesel = number_format($calculoDiesel, 2,',','.');
             $calculoGasNatural = ($distancia / $autonomia) * $valorGasNatural;
             $calculoGasNatural = number_format($calculoGasNatural,2,',','.');
-        
-            echo "<P>O valor do consumo em R$ para Gasolina foi : R$ ".$calculoGasolina."</p>";
-            echo "<P>O valor do consumo em R$ para Alcool foi : R$ ".$calculoAlcool."</p>";
-            echo "<P>O valor do consumo em R$ para Diesel foi : R$ ".$calculoDiesel."</p>";
-            echo "<P>O valor do consumo em R$ para Gasolina foi : R$ ".$calculoGasNatural."</p>";
+            $mensagem.="<div class='sucesso'>";
+            $mensagem.="O valor total gasto será de:";
+            $mensagem.="<ul>";
+            $mensagem.="<li><b>Gasolina: R$ <b>".$calculoGasolina."</li>";
+            $mensagem.="<li><b>Alcool: R$ <b>".$calculoAlcool."</li>";
+            $mensagem.="<li><b>Diesel: R$ <b>".$calculoDiesel."</li>";
+            $mensagem.="<li><b>Gasolina: R$ <b>".$calculoGasNatural."</li>";
+            $mensagem.="</ul>";
+            $mensagem.="</div>";
+
+   
             
         }else{
-            echo"<p> O valor da distância e da autonomia deve ser maior que zero!<p>";
+            $mensagem.="<div class='erro'>";
+            $mensagem.="<p> O valor da distância e da autonomia deve ser maior que zero!<p>";
+            $mensagem.="</div>";
         }
  
     }else{
-        echo"<p>O valor recebido nao é numerico.</P>";
+        $mensagem.="<div class='erro'>";
+        $mensagem.="<p>O valor recebido nao é numerico.</P>";
+        $mensagem.="</div>";
     }
 
 }else {
-    echo "<p>Erro ao receber informações do formulário!<p>";
+    $mensagem.="<div class='erro'>";
+    $mensagem.= "<p>Erro ao receber informações do formulário!<p>";
+    $mensagem.="</div>";
 }
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de Consumo de Combustível</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div class="painel">
+            <h2>Resultado do cálculo de consumo</h2>
+            <div class="conteudo-painel">
+                <?php
+                echo $mensagem;
+                ?>
+                <a class="botao" href="index.php">Voltar</a>
+            </div>
+        </div>
+    </main> 
+</body>
+</html>

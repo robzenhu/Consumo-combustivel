@@ -52,3 +52,20 @@ h2{
 .conteudo-painel{
     padding:  15px;
 }
+.sucesso{
+    padding: 10px;
+    border-collapse: collapse;
+    
+    border-color: #Dff0d8;
+    background-color: #Dff0d8;
+    color: #3c763d;
+
+}
+.erro{
+    padding: 10px;
+    flex-grow: 1;
+    border-color: #f2dede;
+    background-color: #f2dede;
+    color: #a94442;
+    font-weight: bold;
+}
